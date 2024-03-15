@@ -1,0 +1,11 @@
+.hero{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: auto;
+    max-height: 30%;
+    margin-top:3px ;
+}
+
