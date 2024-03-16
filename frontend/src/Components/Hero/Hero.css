@@ -17,13 +17,43 @@
   
   .text {
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 50%; 
     transform: translate(-50%, -50%); 
     color: #ff8c00; 
     font-size: 65px;
     text-align: center;
     z-index: 1; /* Ensure the text is above the image */
-    
   }
-  
+  .lipdukai-btn{
+    position: absolute;
+    top: 68%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    color: #ff8c00; 
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: center;
+    gap: 30px;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .lipdukai-btn img{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: center;
+    width: 150px;
+    height: auto;
+    display: block;
+    text-decoration: none;
+  }
+  .lipdukai-btn li{
+    display: flex;
+    flex-direction: row;
+    align-items: left;
+    justify-content: center;
+    text-decoration: none;
+  }

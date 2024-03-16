@@ -1,14 +1,13 @@
 .navbar {
     display: flex;
-    justify-content: space-between; /* Aligns items to start and end */
-    padding: 10px; /* Adjust padding as needed */
+    justify-content: space-between; 
+    padding: 10px; 
     box-shadow: 0 5px 3px -2px #d5a66e;
     background: #424242;
   }
   
   .nav-logo {
-    /* No need for display: flex; here */
-    align-self: center; /* Align the logo vertically to the center */
+    align-self: center; 
   }
   
   .nav-menu {
