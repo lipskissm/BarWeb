@@ -8,6 +8,7 @@ import Kur from './Pages/Kur'
 import Product from './Pages/Product';
 import Cart from './Pages/Cart'
 import Login from './Pages/Login'
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path='/Cart' element={<Cart/>}/>
         <Route path='/Login' element={<Login/>}/>
       </Routes>
+      <Footer/>
       </BrowserRouter>
     </div>
   );

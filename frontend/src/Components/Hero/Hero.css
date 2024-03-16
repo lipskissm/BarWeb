@@ -27,27 +27,22 @@
   }
   .lipdukai-btn{
     position: absolute;
-    top: 68%;
-    left: 50%; 
-    transform: translate(-50%, -50%);
+    top: calc(50% + 50px);
     color: #ff8c00; 
     font-size: 25px;
     display: flex;
     flex-direction: row;
-    align-items: left;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
-    gap: 30px;
+    gap: 20px;
     cursor: pointer;
     text-decoration: none;
   }
   .lipdukai-btn img{
     display: flex;
-    flex-direction: row;
-    align-items: left;
-    justify-content: center;
-    width: 150px;
+    max-width: 150px;
     height: auto;
-    display: block;
     text-decoration: none;
   }
   .lipdukai-btn li{
