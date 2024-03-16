@@ -8,7 +8,8 @@ const Hero = () => {
         <img src={Lipskis} alt=""/>
     </div>
 
-    <div className="hero-down">
+    <div className="text">
+      <p style={{fontWeight: 'bold'}}>Šiuo metu:</p>
 
     </div>
     </div>

@@ -1,4 +1,6 @@
-.hero{
+/* Hero.css */
+.hero {
+    position: relative; /* Set the parent div to relative positioning */
     height: auto;
     display: flex;
     flex-direction: column;
@@ -6,6 +8,22 @@
     align-items: center;
     max-width: auto;
     max-height: 30%;
-    margin-top:3px ;
-}
-
+    margin-top: 3px;
+  }
+  
+  .hero-top {
+    position: relative; 
+  }
+  
+  .text {
+    position: absolute;
+    top: 50%;
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    color: #ff8c00; 
+    font-size: 65px;
+    text-align: center;
+    z-index: 1; /* Ensure the text is above the image */
+    
+  }
+  
