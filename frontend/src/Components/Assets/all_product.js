@@ -12,14 +12,14 @@ import sakai from '../Assets/Alus/sakai.png';
 import rinkus from '../Assets/Alus/Rinkuskiai-gluten.png';
 import maukas from '../Assets/Alus/BaltasMaukas.png';
 import penkenas from '../Assets/Alus/Penkenas.png';
-import marake from '../Assets/Alus/BaltasMarakesasa.png';
+import marake from '../Assets/Alus/BaltasMarakesas.png';
 import burbu from '../Assets/Alus/Burbulose.png';
 import nemiego from '../Assets/Alus/Nemegose.png';
 import kopa from '../Assets/Alus/Kopaberg.png';
 import rekowild from '../Assets/Alus/RekordWild.png';
 import rekostraw from '../Assets/Alus/RekoStraw.png';
 import westonperry from '../Assets/Alus/WestonPerry.png';
-import westonvintage from '../Assets/Alus/westonVintage.png';
+import westonvintage from '../Assets/Alus/WestonVintage.png';
 import gose from '../Assets/Alus/gose-rasp.png'
 import coco from '../Assets/Alus/coco-milk-stt.png'
 import pils from '../Assets/Alus/ltu-pilsner.png'
@@ -34,7 +34,7 @@ import kali from '../Assets/Alus/kalifornikacija_skarda.png'
 import dvi from '../Assets/Alus/dvi-laisves.png'
 import pineapp from '../Assets/Alus/pinneaple-breeze.png'
 import baltic from '../Assets/Alus/baltic-pilsner.png'
-
+import that from '../Assets/Alus/grgoblin.png'
 
 const all_product = [
   {

@@ -12,9 +12,9 @@ const Navbar = () => {
       <ul className='nav-menu'>
 
         <li><Link to ='/' style={{color: '#d5a66e', textDecoration: 'none'}}>On-tap</Link></li>
-        <li><Link to ='/Asortimentas'style={{color: '#d5a66e', textDecoration: 'none'}}>Asortimentas</Link></li>
-        <li><Link to ='/Apie'style={{color: '#d5a66e', textDecoration: 'none'}}>Apie mus</Link></li>
-        <li><Link to ='/Kur'style={{color: '#d5a66e', textDecoration: 'none'}}>Kur?</Link></li>
+        <li><Link to ='/Nealkoholiniai'style={{color: '#d5a66e', textDecoration: 'none'}}>Nealkoholiniai</Link></li>
+        <li><Link to ='/Alus'style={{color: '#d5a66e', textDecoration: 'none'}}>Alus</Link></li>
+        <li><Link to ='/Sidras'style={{color: '#d5a66e', textDecoration: 'none'}}>Sidras</Link></li>
       </ul>
       <div className="nav-login-cart">
         <Link to = '/Login'><button>Prisijungti</button></Link>
