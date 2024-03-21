@@ -7,6 +7,7 @@ import Kategorija from './Pages/Kategorija'
 import Cart from './Pages/Cart'
 import Login from './Pages/Login'
 import Footer from './Components/Footer/Footer'
+import neban from './Components/Assets/lipskio-aline.png'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Ontap/>}/>
-        <Route path='/Nealkoholiniai' element={<Kategorija category ="nealkoholiniai"/>}/>
+        <Route path='/Nealkoholiniai' element={<Kategorija banner={neban}  category ="nealkoholiniai"/>}/>
         <Route path='/Alus' element={<Kategorija category = "alus"/>}/>
         <Route path='/Sidras' element={<Kategorija category = "sidras"/>}/>
         <Route path='Product' element={<Product/>}>

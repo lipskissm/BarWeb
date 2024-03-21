@@ -8,7 +8,7 @@ const ShopContextProvider = (props) =>{
 
     return(
         <ShopContext.Provider value={contextValue}>
-            {props.nealkoholiniai}
+            {props.children}
         </ShopContext.Provider>
     )
 }
