@@ -28,7 +28,6 @@
   .lipdukai-btn{
     position: absolute;
     top: calc(50% + 50px);
-    color: #ff8c00; 
     font-size: 25px;
     display: flex;
     flex-direction: row;

@@ -1,6 +1,6 @@
 .footer::before {
     content: '';
-    position: absolute;
+    position: relative;
     top: 1021px; /* Adjust the position to create space above the line */
     left: 0;
     width: 100%;

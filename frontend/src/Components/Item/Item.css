@@ -1,15 +1,33 @@
-.item{
-    width: 350px;
-}
-.item p{
+.item {
+    position: relative;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width:150px;
+    margin: 2px;
+  }
+  
+  .item p {
     margin: 6px 0px;
-}
-.item-prices{
+  }
+  
+  .item img {
+    display: block; /* Changed from flex to block */
+    margin:  auto; /* Added to center the image horizontally */
+    max-width: 100%; /* Added to ensure the image doesn't exceed its container */
+    height: auto; /* Added to maintain aspect ratio */
+  }
+  
+  .item-prices {
     display: flex;
     gap: 20px;
-}
-.item-price{
+  }
+  
+  .item-price {
     color: red;
     font-size: 18px;
     font-weight: 600;
-}
+  }
+  

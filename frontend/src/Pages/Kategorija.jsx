@@ -6,7 +6,6 @@ const Kategorija = (props) => {
   const{all_product} = useContext(ShopContext)
   return (
     <div className='Kategorija'>
-      
       <div className="Kategorijaproducts">
         {all_product.map((item,i)=>{
           if(props.category===item.category){

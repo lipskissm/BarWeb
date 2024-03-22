@@ -1,0 +1,12 @@
+.Kategorija{
+    display: flex;
+}
+.Kategorijaproducts{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    cursor: pointer;
+}
