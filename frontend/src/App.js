@@ -16,9 +16,9 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='/' element={<Ontap/>}/>
-        <Route path='/Nealkoholiniai' element={<Kategorija banner={neban}  category ="nealkoholiniai"/>}/>
-        <Route path='/Alus' element={<Kategorija category = "alus"/>}/>
-        <Route path='/Sidras' element={<Kategorija category = "sidras"/>}/>
+        <Route path='/Nealkoholiniai' element={<Kategorija banner={neban}  category ="Nealkoholiniai"/>}/>
+        <Route path='/Alus' element={<Kategorija category = "Alus"/>}/>
+        <Route path='/Sidras' element={<Kategorija category = "Sidras"/>}/>
         <Route path='Product' element={<Product/>}>
         </Route>
         <Route path='/Cart' element={<Cart/>}/>
