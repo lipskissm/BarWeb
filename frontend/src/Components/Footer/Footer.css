@@ -1,12 +1,3 @@
-.footer::before {
-    content: '';
-    position: relative;
-    top: 1021px; /* Adjust the position to create space above the line */
-    left: 0;
-    width: 100%;
-    height: 4px; /* Adjust the height of the line as needed */
-    background-color: #d5a66e; /* Color of the line */
-  }
 
 .footer{
     display: flex;
@@ -16,7 +7,9 @@
     gap: 1px;
     background: #424242;
     padding: 10px;
+    
 }
+
 .footer-logo{
     display: flex;
     align-items: center;
