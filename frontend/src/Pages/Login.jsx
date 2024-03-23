@@ -8,14 +8,14 @@ const Login = () => {
         <h1>Registruotis</h1>
         <div className="LoginSignup-fields">
           <input type="text" placeholder='Vardas'/>
-          <input type="email" placeholder='Elektroninis pastas'/>
-          <input type="password" placeholder='Slaptazodis'/>
+          <input type="email" placeholder='Elektroninis paštas'/>
+          <input type="password" placeholder='Slaptažodis'/>
         </div>
-        <button>Continue</button>
-        <p className="login-login">Jau vienas is musu? <span>Prisijuk</span></p>
+        <button>Tęsti</button>
+        <p className="login-login">Jau vienas iš mūsų? <span>Prisijunk</span></p>
         <div className="login-agree">
           <input type = "checkbox" name='' id='' />
-
+          <p> Tęsdami sutinkate su privatumo politika </p>
         </div>
       </div>
     </div>
