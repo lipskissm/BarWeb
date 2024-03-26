@@ -20,6 +20,7 @@ function App() {
         <Route path='/Alus' element={<Kategorija category = "Alus"/>}/>
         <Route path='/Sidras' element={<Kategorija category = "Sidras"/>}/>
         <Route path='Product' element={<Product/>}>
+          <Route path=':productId' element={<Product/>}/>
         </Route>
         <Route path='/Cart' element={<Cart/>}/>
         <Route path='/Login' element={<Login/>}/>
