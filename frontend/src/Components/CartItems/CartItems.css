@@ -1,0 +1,86 @@
+.cartitems {
+    margin: 5% 10%; /* Adjust margin using percentages */
+}
+
+.cartitems hr {
+    height: 3px;
+    background: red;
+    border: 0;
+}
+
+.remove-icon {
+    max-width: 5%; /* Adjust max-width using percentages */
+    height: auto;
+}
+
+.cartitems-format p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    flex-wrap: wrap;
+}
+
+.cartitem-format-main {
+    display: grid;
+    grid-template-columns: 5% 20% 15% 15% 15% 15%; /* Adjust grid-template-columns using percentages */
+    align-items: center;
+    gap: 5%; /* Adjust gap using percentages */
+    padding: 2% 0; /* Adjust padding using percentages */
+    color: gray;
+    font-size: 1.5vw; /* Adjust font-size using viewport width */
+    font-weight: 600;
+}
+
+.cartitems-format {
+    font-size: 1.4vw; /* Adjust font-size using viewport width */
+    font-weight: 500;
+}
+
+.carticon-product-icon {
+    height: 10vh; /* Adjust height using viewport height */
+}
+
+.remove-icon{
+   cursor: pointer;
+   max-width: 20%;
+}
+.remove-icon img {
+    width: 100%; /* Ensure the image inside takes up the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.cartitems-quantity {
+    width: 10%; /* Adjust width using percentages */
+    height: 8vh; /* Adjust height using viewport height */
+    border: 2px;
+    background: white;
+    margin-right: 10%; /* Adjust margin-right using percentages */
+}
+
+.cartitems-down{
+    display: flex;
+    margin: 100px 0px;
+}
+.cartitems-total{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-right: 200px;
+    gap: 40px;
+}
+.cartitems-total-item{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0px;
+}
+.cartitems-down button{
+    width: 262px;
+    height: 58px;
+    outline: none;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
