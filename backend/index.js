@@ -42,6 +42,57 @@ app.post("/upload", upload.single('product'), (req,res)=>{
 
 })
 
+// scheme for db products
+const Product = mongoose.model("Product",{
+    id:{
+        type:Number,
+        required:true,
+    },
+    name:{
+        type:String,
+        required:true,
+    },
+    image:{
+        type:String,
+        required:true,
+    },
+    category:{
+        type:String,
+        required:true,
+    },
+    price:{
+        type:Number,
+        required:true,
+    },
+    date:{
+        type:Date,
+        default:Date.now,
+    },
+    avilable:{
+        type:Boolean,
+        default:true,
+    }
+})
+
+app.post('/addproduct',async (req,res)=> {
+
+    const product = new Product({
+        id:req.body.id,
+        name:req.body.name,
+        image:req.body.image,
+        category:req.body.category,
+        price:req.body.price,
+        date:req.body.date,
+        avilable:req.body.avilable
+    });
+    console.log(product);
+    await product.save();
+    console.log("Saved")
+})
+
+    
+
+
 app.listen(port,(error)=>{
     if(!error){
        console.log("Server running on Port"+port) 
