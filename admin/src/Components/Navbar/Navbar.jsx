@@ -1,9 +1,10 @@
 import React from 'react'
-
+import './Navbar.css'
+import navlogo from '../../assets/lipskio-aline.png'
 const Navbar = () => {
   return (
-    <div>
-      
+    <div className='navbar'>
+      <img src={navlogo} alt="" className="nav-logo" />
     </div>
   )
 }
