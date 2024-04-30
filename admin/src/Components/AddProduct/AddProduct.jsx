@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import './AddProduct.css'
 import upload from '../../assets/upload.png'
 const AddProduct = () => {
@@ -37,6 +37,16 @@ const AddProduct = () => {
         if(responseData.success){
             product.image=responseData.image_url;
             console.log(product);
+            await fetch('http://localhost:4000/addproduct', {
+            method:'POST',
+            headers:{
+                Accept:'application/json',
+                'Content-Type':'application/json' // Corrected typo here
+            },
+            body:JSON.stringify(product),
+        }).then((resp)=>resp.json()).then((data)=>{
+            data.success ? alert("Pridetas") : alert("Ne")
+        });
         }
     }
 
