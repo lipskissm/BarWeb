@@ -20,7 +20,8 @@ const Navbar = () => {
         <li><Link to ='/Sidras'style={{color: '#d5a66e', textDecoration: 'none'}}>Sidras</Link></li>
       </ul>
       <div className="nav-login-cart">
-        <Link to = '/Login'><button>Prisijungti</button></Link>
+        {localStorage.getItem('auth-token')?<button onClick={()=>{localStorage.removeItem('auth-token');window.location.replace('/')}}>Atsijungti</button>
+        :<Link to = '/Login'><button>Prisijungti</button></Link> }
         <Link to = '/Cart'><img src={cart} alt="" /></Link>
         <div className="nav-cart-count">{getTotalCartItems()}
         
