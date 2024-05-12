@@ -201,6 +201,11 @@ app.post('/login',async (req,res)=>{
     }
 })
 
+//endpoint ot add cart in db
+app.post('/addtocart', async (res,req)=>{
+    console.log(req.body)
+})
+
 app.listen(port,(error)=>{
     if(!error){
        console.log("Server running on Port"+port) 
