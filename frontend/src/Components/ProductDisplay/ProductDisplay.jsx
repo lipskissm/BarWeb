@@ -6,6 +6,8 @@ const ProductDisplay = (props) => {
   const { product } = props;
   const {addToCart} = useContext(ShopContext);
 
+  const authTokenExists = localStorage.getItem('auth-token');
+
   return (
     <div className='productdisplay'>
       <div className="display-left">
@@ -17,14 +19,14 @@ const ProductDisplay = (props) => {
       <div className="display-right">
         <h1>{product.name}</h1>
         <div className="description-right">
-           <p> sadasdadsdsa</p>
+           <p>{product.category} </p>
           </div>
         <div className="productdisplay-right-price">
           <div className="price">
             €{product.price}
           </div>
         </div>
-          <button onClick={()=>{addToCart(product.id)}}>Į krepšelį</button>
+        {authTokenExists && <button onClick={()=>{addToCart(product.id)}}>Į krepšelį</button>}
         
       </div>
     </div>

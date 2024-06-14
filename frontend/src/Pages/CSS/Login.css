@@ -30,7 +30,7 @@
     font-size: 18px;
 }
 .Login-container button{
-    width: 580px;
+    width: 550px;
     height: 72px;
     color: #d5a66e;
     background-color: #424242;
@@ -60,6 +60,36 @@
     font-size: 18px;
     font-weight: 500;
 
+}
+@media(max-width:1280px){
+    .Login{
+        padding: 50px;
+        padding-right: 50px;
+    }
+    
+    .Login-container{
+        width: auto;
+        max-width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .Login {
+        padding: 20px; /* Adjust padding for smaller screens */
+        padding-top: 80px; /* Adjust padding-top for smaller screens */
+        
+    }
+
+    .Login-container {
+        padding: 20px 30px; /* Adjust padding for smaller screens */
+    }
+
+    .LoginSignup-fields input,
+    .Login-container button {
+        height: 50px; /* Adjust input and button height for smaller screens */
+        font-size: 16px; /* Adjust font size for smaller screens */
+    }
+    
 }
 /* d5a66e
 424242 */

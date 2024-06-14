@@ -6,10 +6,11 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const { body, validationResult } = require("express-validator");
 
-app.use(express.json());
-app.use(cors());
 
+app.use(express.json());//everything is passed as json
+app.use(cors());//connects to express ap on 4000
 //db con mongo 
 mongoose.connect("mongodb+srv://lipskissm0:LipskioAline2!@cluster0.kcoptqk.mongodb.net/Lipskis");
 
@@ -30,7 +31,9 @@ const storage = multer.diskStorage({
     
 })
     
-const upload = multer({storage:storage})
+const upload = multer({storage:storage,
+    limits:{fileSize: 2 * 1024 * 1024}
+})
 app.use('/images',express.static('upload/images'))
 //Upload endpoint for images
 app.post("/upload", upload.single('product'), (req,res)=>{
@@ -74,34 +77,41 @@ const Product = mongoose.model("Product",{
     }
 })
 
-app.post('/addproduct',async (req,res)=> {
-    let products = await Product.find({});
-    let id;
-    if(products.length>0){
-        let last_product_array = products.slice(-1);
-        let last_product = last_product_array[0];
-        id = last_product.id+1;
+app.post('/addproduct',
+    [
+        body('name').notEmpty().withMessage('Pavadinimas yra būtinas'),
+        body('image').notEmpty().withMessage('Vaizdas yra būtinas'),
+        body('category').notEmpty().withMessage('Kategorija yra būtina'),
+        body('price').isNumeric().withMessage('Kaina turi būti skaičius')
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log(errors.array()); // Pridėtas kodas
+            return res.status(400).json({ success: false, errors: errors.array() });
+        }
+
+        let products = await Product.find({});
+        let id = products.length > 0 ? products.slice(-1)[0].id + 1 : 1;
+
+        const product = new Product({
+            id: id,
+            name: req.body.name,
+            image: req.body.image,
+            category: req.body.category,
+            price: req.body.price,
+            date: req.body.date,
+            available: req.body.available
+        });
+
+        await product.save();
+        res.json({
+            success: true,
+            name: req.body.name,
+        });
     }
-    else{
-        id = 1;
-    }
-    const product = new Product({
-        id:id,
-        name:req.body.name,
-        image:req.body.image,
-        category:req.body.category,
-        price:req.body.price,
-        date:req.body.date,
-        avilable:req.body.avilable
-    });
-    console.log(product);
-    await product.save();
-    console.log("Saved")
-    res.json({
-        success:true,
-        name:req.body.name,
-    })
-})
+);
+
 
     
 // api for product delation
@@ -148,58 +158,75 @@ const Users = mongoose.model('Users',{
 
 
 //endpoint for user registration
-app.post('/signup',async(req,res)=>{
-    let check = await Users.findOne({email:req.body.email})
-    if (check){
-        return res.status(400).json({success:false,errors:"Jau yra toks vartotojas"})
-    }
-    let cart = {};
-    for(let i = 0; i < 300; i++){
-        cart[i]=0;
-    }
-    const user = new Users({
-        name:req.body.username,
-        email:req.body.email,
-        password:req.body.password,
-        cartData:cart,
-    })
-
-    await user.save();
-
-    const data = {
-        user:{
-            id:user.id
+app.post('/signup', 
+    [
+        body('username').notEmpty().withMessage('Vardas yra būtinas'),
+        body('email').isEmail().withMessage('El paštas turi būti galiojantis'),
+        body('password').isLength({ min: 5 }).withMessage('Slaptažodis turi būti bent 5 simbolių ilgio')
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            console.log(errors.array());
+            return res.status(400).json({ success: false, errors: errors.array() });
         }
+
+        let check = await Users.findOne({email: req.body.email});
+        if (check) {
+            res.json({success: false, errors: "Email already exists"});
+            console.log("error")
+            return;
+        }
+
+        let cart = {};
+        for(let i = 0; i < 300; i++){
+            cart[i] = 0;
+        }
+
+        const user = new Users({
+            name: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            cartData: cart,
+        });
+
+        await user.save();
+
+        const data = {
+            user: {
+                id: user.id
+            }
+        };
+
+        const token = jwt.sign(data, 'secret_ecom');
+        res.json({success: true, token});
     }
+);
 
-    const token = jwt.sign(data,'secret_ecom');
-    res.json({success:true,token})
-
-})
 
 //endpoint for user login
 
-app.post('/login',async (req,res)=>{
-    let user = await Users.findOne({email:req.body.email})
-    if (user){
-        const passCompare = req.body.password === user.password
-        if(passCompare){
+app.post('/login', async (req, res) => {
+    let user = await Users.findOne({email: req.body.email});
+    if (user) {
+        const passCompare = req.body.password === user.password;
+        if(passCompare) {
             const data = {
-                user:{
-                    id:user.id
+                user: {
+                    id: user.id
                 }
-            }
+            };
             const token = jwt.sign(data, 'secret_ecom');
-            res.json({success:true, token})
+            res.json({success: true, token});
+        } else {
+            console.log("Neteisingas slaptazodis"); // Pridėtas kodas
+            res.json({success: false, errors: "Neteisingas slaptazodis"});
         }
-        else{
-            res.json({success:false, errors:"Neteisingas slaptazodis"})
-        }
+    } else {
+        console.log("blogas email id"); 
+        res.json({success: false, errors: "blogas email id"});
     }
-    else{
-        res.json({success:false, errors:"blogas email id"})
-    }
-})
+});
 
 // middleware to fetch user 
 
